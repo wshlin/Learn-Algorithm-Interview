@@ -25,15 +25,15 @@ int binarySearch(T arr[], int n, T target) {
 template<typename T>
 int binarySearchII(T arr[], int n, T target) {
 
-    int l = 0, r = n;  // find the target in the range of [l...r)
+    int l = 0, r = n;     // find the target in the range of [l...r)
     while (l < r) {       // when l == r, the interval [l...r) is an invalid interval
         int mid = l + (r - l) / 2;
         if (arr[mid] == target)
             return mid;
         if (target > arr[mid])
-            l = mid + 1;   // target in [mid+1...r), [l...mid] must have no target
+            l = mid + 1;  // target in [mid+1...r), [l...mid] must have no target
         else 
-            r = mid;   // target in [l...mid), [mid...r) must have no target
+            r = mid;      // target in [l...mid), [mid...r) must have no target
     }
     return -1;
 }
