@@ -5,6 +5,8 @@ using namespace std;
 
 class Solution {
 public:
+    // time complexity  : O(n)
+    // space complexity : O(n)
     void moveZeroes(vector<int>& nums) {
         
         vector<int> nonZeroElements;
@@ -23,14 +25,19 @@ public:
             nums[i] = 0;
     }
     
+    // time complexity  : O(n)
+    // space complexity : O(1)
     void moveZeroesI(vector<int>& nums) {
         
-        int k = 0;
-        
+        int k = 0; // in nums, [0...k) elements are non-zero elements
+ 
+        // After traversing the ith element,  
+        // we guarantee all non-zero element in [0...i] are in order of [0...k)       
         for (int i = 0; i < nums.size(); i++)
             if (nums[i])
                 nums[k++] = nums[i];
-             
+                
+        // place the rest of nums as 0     
         for (int i = k; i< nums.size(); i++)
             nums[i] = 0;
     }
@@ -46,8 +53,11 @@ public:
 
     void moveZeroesIII(vector<int>& nums) {
         
-        int k = 0;
+        int k = 0; // in nums, [0...k) elements are non-zero elements
 
+        // After traversing the ith element,  
+        // we guarantee all non-zero element in [0...i] are in order of [0...k)
+        // at the same time, [k..i] is zero
         for (int i = 0; i < nums.size(); i++)
             if (nums[i])
                 if (k != i)
